@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "dev": "node-dev ./bin/dev",
+    "build": "babel src --out-dir dist",
+    "pretest": "export NODE_ENV=test && node src/utils/db-setup.js",
+    "test":
+    "mocha \"src/**/*-spec.js\" --require=env-test --compilers js:babel-register --recursive",
+    "posttest": "export NODE_ENV=development",
+    "model:create": "node bin/model.js ",
+    "migrate:create": "node bin/migration.js ",
+    "migrate:run": "knex migrate:latest",
+    "seed:run": "knex seed:run",
+    "seed:make": "knex seed:make",
+    "fixtures": "node src/utils/fixtures.js",
+    "precov": "export NODE_ENV=test",
+    "cov": "nyc npm test",
+    "fe:build": "webpack",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "plato": "es6-plato -r -d report src",
+    "lint": "eslint ./src"
+  }
+}
